@@ -18,7 +18,7 @@ gulp.task("run", ['browserSync', 'compile-sass', 'jshint'], function() {
 gulp.task('jshint', function () {
   return gulp.src('app/scripts/**/*.js')
   .pipe(jshint())
-  .pipe(jshint.reporter('jshint-stylish'));
+  .pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task('compile-sass', function() {

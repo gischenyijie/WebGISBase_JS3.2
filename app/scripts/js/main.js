@@ -1,6 +1,10 @@
 //import EsriConfig = require("esri/config");
 //import UrlUtils = require("esri/core/urlUtils");
-define(["require", "exports", "dojo/_base/lang", "dojo/on", "esri/arcgis/utils", "esri/tasks/query", "esri/dijit/Search", "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol", "esri/symbols/SimpleMarkerSymbol", "esri/Color", "esri/graphic", "esri/geometry/Multipoint", "agsjs/dijit/TOC", "esri/dijit/BasemapToggle", "esri/dijit/HomeButton"], function (require, exports, lang, on, arcgisUtils, esriQuery, Search, simpleFillSym, simpleLineSym, simpleMarkerSym, color, Graphic, MultiPoint, TOC, BasemapToggle, HomeButton) {
+define(["require", "exports", "dojo/_base/lang", "dojo/on", "esri/arcgis/utils", "esri/tasks/query", "esri/dijit/Search", "esri/symbols/SimpleFillSymbol", 
+"esri/symbols/SimpleLineSymbol", "esri/symbols/SimpleMarkerSymbol", "esri/Color", "esri/graphic", "esri/geometry/Multipoint", "agsjs/dijit/TOC", 
+"esri/dijit/BasemapToggle", "esri/dijit/HomeButton"], 
+function (require, exports, lang, on, arcgisUtils, esriQuery, Search, simpleFillSym, simpleLineSym, 
+    simpleMarkerSym, color, Graphic, MultiPoint, TOC, BasemapToggle, HomeButton) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var map;
@@ -19,7 +23,7 @@ define(["require", "exports", "dojo/_base/lang", "dojo/on", "esri/arcgis/utils",
     }, function (err) {
         console.log("Error loading map " + err.message);
     });
-    // added by Jacky for the TOC
+
     function initTOC() {
         var toc = new TOC({
             map: map,
@@ -30,7 +34,8 @@ define(["require", "exports", "dojo/_base/lang", "dojo/on", "esri/arcgis/utils",
                 }]
         }, 'tocDiv');
         toc.startup();
-    }
+    };
+
     function initBaseMapToggle() {
         /* Start code fix until supported by widget */
         var bmLayers = [], mapLayers = map.getLayersVisibleAtScale(map.getScale());
@@ -56,18 +61,21 @@ define(["require", "exports", "dojo/_base/lang", "dojo/on", "esri/arcgis/utils",
             basemap: "gray"
         }, "BasemapToggle");
         toggle.startup();
-    }
+    };
+
     function initHomeButton() {
         var home = new HomeButton({
             map: map
         }, "HomeButton");
         home.startup();
-    }
+    };
+
     function initLayers() {
         stateLayer = getLayerByKeyword('state');
         var node = stateLayer.getNode();
         node.style = "cursor: pointer;";
-    }
+    };
+
     function initSearch(map) {
         search = new Search({
             enableButtonMode: true,
@@ -83,19 +91,21 @@ define(["require", "exports", "dojo/_base/lang", "dojo/on", "esri/arcgis/utils",
         var stateSearch = {
             featureLayer: stateLayer,
             name: 'State',
-            searchFields: ['Abbreviation'],
-            suggestionTemplate: "${Abbreviation}",
+            searchFields: ['STATE_NAME'],
+            suggestionTemplate: "${STATE_NAME}",
             exactMatch: false,
-            placeholder: 'Abbreviation',
+            placeholder: 'Search By State Name',
             enableSuggestions: true
         };
         sources.push(stateSearch);
         search.set('sources', sources);
         search.startup();
-    }
+    };
+
     function attachEventHandlers() {
         on(clearBtn, 'click', clear.bind(this));
     };
+
     function getLayerByKeyword(key) {
         var layer;
         map.graphicsLayerIds.forEach(function (lyrId) {
@@ -107,8 +117,7 @@ define(["require", "exports", "dojo/_base/lang", "dojo/on", "esri/arcgis/utils",
 
     function clear() {
         map.graphics.clear();
-    }
-    ;
+    };
     function updateExtent() {
         if (Object.keys(selectedBranches).length <= 0)
             return;
@@ -126,6 +135,5 @@ define(["require", "exports", "dojo/_base/lang", "dojo/on", "esri/arcgis/utils",
         if (extent) {
             map.setExtent(extent.expand(1.5));
         }
-    }
-    ;
+    };
 });
