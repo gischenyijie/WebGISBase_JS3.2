@@ -37,7 +37,7 @@ gulp.task("serve-build", ['build'], function() {
     server: {
       baseDir: 'dist'
     },
-    browser: "chrome"
+    browser: "google chrome"
   })
 });
 
@@ -63,7 +63,7 @@ gulp.task('browserSync', function() {
     server: {
       baseDir: 'app'
     },
-    browser: "chrome"
+    browser: "google chrome"
   })
 });
 

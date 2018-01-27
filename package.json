@@ -18,7 +18,8 @@
     "dojo-typings": "^1.11.6",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
-    "gulp-jshint": "^3.1.7",
-    "gulp-useref": "^3.1.2"
+    "gulp-jshint": "^2.1.0",
+    "gulp-useref": "^3.1.2",
+    "jshint": "^2.9.5"
   }
 }
