@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>GIS Web App Base - ESRI JS API 4.6</title>
+    <style>
+      
+    </style>
+
+    <!-- dependencies for 3.20 -->
+    <link rel="stylesheet" href="//js.arcgis.com/3.20/esri/themes/calcite/dijit/calcite.css">
+    <link rel="stylesheet" href="//js.arcgis.com/3.20/esri/themes/calcite/esri/esri.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	
+
+    <!--build:css css/main.css-->
+    <link rel="stylesheet" href="styles/css/main.css">
+    <!-- endbuild -->
+    <script>
+      var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+      var dojoConfig = {
+        packages: [
+          {
+            name: "app",
+            location: locationPath + "scripts/js"
+          },
+		  {  
+			name: "agsjs",  
+			location: locationPath + 'scripts/agsjs'  
+		  }]
+      };
+    </script>
+    <script src="//js.arcgis.com/3.20"></script>
+  </head>
+  <body class="calcite root">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <!-- Title -->
+      <div class="calcite-title">
+        <img class="logo" src="/images/Global.png" alt="">
+        <span class="calcite-title-sub">Calcite App</span>
+      </div>
+    </nav>
+    <!-- /Navbar-->
+	
+    <!-- Map Container-->
+ 	<div class="row" style="height:100%">
+ 		<div  class="col-sm-2">
+			<div id ="tocDiv"></div>
+		</div>
+		<div class="col-sm-10">
+			<div id = "mapView" class="map">
+				<div id="BasemapToggle"></div>
+				<div id="HomeButton"></div>
+				<div class="search" id="searchNode"></div>
+				<div class="clear" id="clearNode">
+					<div id="clearBtn">
+						<span class="esri-icon-erase"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- /Map Container-->
+
+    <!--scripts-->
+    <script>require(["app/main"]);</script>
+  </body>
+</html>

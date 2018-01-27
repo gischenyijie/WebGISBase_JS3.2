@@ -1,0 +1,24 @@
+{
+  "name": "GIS-WEBAPP-BASE",
+  "version": "1.0.0",
+  "description": "BASE SETUP FOR GIS WEB APP",
+  "main": "app/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "gulp run"
+  },
+  "repository": {},
+  "keywords": [],
+  "author": "YIJIE CHEN - Jacky",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/arcgis-js-api": "^4.3.1",
+    "browser-sync": "^2.18.12",
+    "del": "^3.0.0",
+    "dojo-typings": "^1.11.6",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-jshint": "^3.1.7",
+    "gulp-useref": "^3.1.2"
+  }
+}
